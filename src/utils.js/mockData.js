@@ -1816,4 +1816,13 @@ const restaurantList = [
     },
   ];
 
+  const filttered=restaurantList.filter((res)=>{
+    return res.data.avgRating>4.4
+  })
+
+
+
+
+  // console.log("data",filttered);
+
   export default restaurantList;
