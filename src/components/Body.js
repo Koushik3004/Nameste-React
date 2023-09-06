@@ -4,18 +4,15 @@ import { useEffect, useState } from "react";
 import { swiggy_api_URL } from "../utils.js/cosntant";
 //console.log(restaurantList);
 
-
-
 const Body = () => {
-  const[listOfRestaurant,setlistOfRestaurant]=useState([]);
+  const [listOfRestaurant, setlistOfRestaurant] = useState([]);
 
- // console.log("setlistOfRestaurant",setlistOfRestaurant);
+  // console.log("setlistOfRestaurant",setlistOfRestaurant);
 
-  useEffect(()=>{
-   // console.log("useeffect called");
-   getRestaurants()
-
-  },[]);
+  useEffect(() => {
+    // console.log("useeffect called");
+    getRestaurants();
+  }, []);
 
   async function getRestaurants() {
     // handle the error using try... catch
@@ -26,11 +23,12 @@ const Body = () => {
       // initialize checkJsonData() function to check Swiggy Restaurant data
       async function checkJsonData(jsonData) {
         for (let i = 0; i < jsonData?.data?.cards.length; i++) {
-
           // initialize checkData for Swiggy Restaurant data
-          let checkData = json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+          let checkData =
+            json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants;
 
-         // console.log("checkData",checkData);
+          // console.log("checkData",checkData);
 
           // if checkData is not undefined then return it
           if (checkData !== undefined) {
@@ -44,21 +42,10 @@ const Body = () => {
 
       // update the state variable restaurants with Swiggy API data
       setlistOfRestaurant(resData);
-      
     } catch (error) {
       console.log(error);
     }
   }
-
-
-
-
-
-
-
-
-
-
 
   return (
     <div className="body">
@@ -66,19 +53,17 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-           // console.log("button clicked");
-           let filteredRestaurent=listOfRestaurant.filter((res)=>{
-            return res.info.avgRating>=4.0
-           })
-           setlistOfRestaurant(filteredRestaurent)
-          
-          }
-        }
+            // console.log("button clicked");
+            let filteredRestaurent = listOfRestaurant.filter((res) => {
+              return res.info.avgRating >= 4.0;
+            });
+            setlistOfRestaurant(filteredRestaurent);
+          }}
         >
           Top rated restaurant
         </button>
       </div>
-      
+
       <div className="res-container">
         {listOfRestaurant.map((restaurant) => {
           return (
