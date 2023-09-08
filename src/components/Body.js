@@ -2,6 +2,7 @@ import RestaurentCard from "./RestaurentCard";
 import restaurantList from "../utils.js/mockData";
 import { useEffect, useState } from "react";
 import { swiggy_api_URL } from "../utils.js/cosntant";
+import Shimmer from "./Shimmer";
 //console.log(restaurantList);
 
 const Body = () => {
@@ -11,7 +12,7 @@ const Body = () => {
 
   useEffect(() => {
     // console.log("useeffect called");
-    getRestaurants();
+    getRestaurants()
   }, []);
 
   async function getRestaurants() {
@@ -47,7 +48,12 @@ const Body = () => {
     }
   }
 
-  return (
+  //console.log("listOfRestaurant",listOfRestaurant);
+
+  
+
+  return listOfRestaurant.length==0?(<Shimmer/>):
+  (
     <div className="body">
       <div className="filtter">
         <button

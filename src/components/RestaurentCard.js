@@ -1,9 +1,9 @@
 import { CDN_URL } from "../utils.js/cosntant";
 const RestaurentCard = (props) => {
-  console.log("props", props);
+  //console.log("props", props);
   const { resData } = props;
 
-  console.log("resData",resData);
+  //console.log("resData",resData);
 
   const {
     cloudinaryImageId,
