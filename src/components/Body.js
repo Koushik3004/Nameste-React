@@ -5,6 +5,7 @@ import { swiggy_api_URL } from "../utils.js/cosntant";
 import Shimmer from "./Shimmer";
 import axios from "axios";
 //console.log(restaurantList);
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurant, setlistOfRestaurant] = useState([]);
@@ -100,11 +101,13 @@ const Body = () => {
       </div>
 
       <div className="res-container">
-        {filteredRestaurent.map((restaurant) => {
-          return (
-            <RestaurentCard key={restaurant?.info?.id} resData={restaurant} />
-          );
-        })}
+        {filteredRestaurent.map((restaurant) => 
+           (
+            <Link key={restaurant?.info?.id}
+            to ={"/restaurants/"+restaurant?.info?.id}><RestaurentCard  resData={restaurant} />
+            </Link>
+          )
+        )}
       </div>
     </div>
   );
