@@ -22,7 +22,7 @@ const RestaurentMenu = () => {
   const fetchData=async()=>{
     const response=await fetch(swiggy_menu_api_URL + resId)
     const json=await response.json()
-   // console.log("data",data);
+    console.log("datares",json);
     setRestaurant(json.data)
 
   }
@@ -37,6 +37,8 @@ const RestaurentMenu = () => {
  // console.log("gfg",name);
 
  const {itemCards}=restaurant.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
+
+ console.log("data",itemCards);
 
  
 
