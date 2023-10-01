@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 import axios from "axios";
 //console.log(restaurantList);
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils.js/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurant, setlistOfRestaurant] = useState([]);
@@ -58,6 +59,13 @@ const Body = () => {
   }
 
   //console.log("listOfRestaurant",listOfRestaurant);
+
+  const onlineStatus=useOnlineStatus();
+
+  console.log("onlineStatus",onlineStatus);
+
+  if (onlineStatus === false) return <h1>Please check your internet connection!!!</h1>
+  
 
   return listOfRestaurant.length == 0 ? (
     <Shimmer />

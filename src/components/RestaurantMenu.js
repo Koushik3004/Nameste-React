@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { swiggy_menu_api_URL } from "../utils.js/cosntant";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils.js/useRestaurantMenu";
 
 
 console.log("swiggy_menu_api_URL", swiggy_menu_api_URL);
@@ -9,23 +10,25 @@ console.log("swiggy_menu_api_URL", swiggy_menu_api_URL);
 console.log("koushik");
 
 const RestaurentMenu = () => {
-  const [restaurant,setRestaurant]=useState(null);
+  //const [restaurant,setRestaurant]=useState(null);
   const{resId}=useParams();
 
-  useEffect(()=>{
-    fetchData()
+  // useEffect(()=>{
+  //   fetchData()
 
-  },[])
+  // },[])
 
 
 
-  const fetchData=async()=>{
-    const response=await fetch(swiggy_menu_api_URL + resId)
-    const json=await response.json()
-    console.log("datares",json);
-    setRestaurant(json.data)
+  // const fetchData=async()=>{
+  //   const response=await fetch(swiggy_menu_api_URL + resId)
+  //   const json=await response.json()
+  //   console.log("datares",json);
+  //   setRestaurant(json.data)
 
-  }
+  // }
+
+const restaurant=useRestaurantMenu(resId)
 
 
 
