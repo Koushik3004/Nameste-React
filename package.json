@@ -20,7 +20,9 @@
   "homepage": "https://github.com/Koushik3004/Nameste-React#readme",
   "devDependencies": {
     "buffer": "^5.7.1",
-    "process": "^0.11.10"
+    "postcss": "^8.4.31",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.3"
   },
   "dependencies": {
     "axios": "^1.5.0",
