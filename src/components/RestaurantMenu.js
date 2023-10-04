@@ -53,7 +53,7 @@ const restaurant=useRestaurantMenu(resId)
       <h1>{name}</h1>
       <h1>{cuisines.join(",")} - {costForTwoMessage}</h1>
 
-      <h2>Menu</h2>
+      <h2 className="text-2xl ">Menu</h2>
 
       <ul>
         {itemCards.map((item)=>{
