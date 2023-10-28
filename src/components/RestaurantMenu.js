@@ -63,7 +63,7 @@ const restaurant=useRestaurantMenu(resId)
 
       {/* categories acrodians  */}
       {categories.map((category)=>{
-        return  <RestaurantCatagory data={category?.card?.card}/>
+        return  <RestaurantCatagory key={category?.card?.card?.title}data={category?.card?.card}/>
       }
       )}
 
